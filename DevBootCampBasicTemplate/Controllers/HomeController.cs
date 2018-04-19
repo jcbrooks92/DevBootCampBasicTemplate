@@ -96,6 +96,28 @@ namespace DevBootCampBasicTemplate.Controllers
             return View();
         }
 
+        public ActionResult Http500()
+        {
+            while (ConfigurationManager.AppSettings["disable"] == null)
+            {
+                var connStr = $"server";
+                if (ConfigurationManager.ConnectionStrings["myConnString"] == null)
+                {
+                    connStr = $"Server=tcp:xxx.database.windows.net,1433;Initial Catalog=xxxx;Persist Security Info=False;User ID=xxx;Password=xxxx;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=5;";
+                }
+                else
+                {
+                    connStr = ConfigurationManager.ConnectionStrings["myConnString"].ConnectionString;
+                }
+
+                using (SqlConnection connection = new SqlConnection(connStr))
+                {
+                    connection.Open();   ///TEST opening the connection to the web app 
+                }
+            }
+            return View();
+        }
+
     }
 
     internal class SaleModel
