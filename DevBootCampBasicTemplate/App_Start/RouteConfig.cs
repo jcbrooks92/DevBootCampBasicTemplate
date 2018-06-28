@@ -23,6 +23,7 @@ namespace DevBootCampBasicTemplate
 
 
             //throw exception during route config
+<<<<<<< HEAD
            /* var connStr = $"server";
             if (ConfigurationManager.ConnectionStrings["myConnString"] == null)
             {
@@ -38,6 +39,9 @@ namespace DevBootCampBasicTemplate
                 connection.Open();   ///TEST opening the connection to the web app 
             }
             */
+=======
+           /* */
+>>>>>>> origin/master
         }
     }
 }
